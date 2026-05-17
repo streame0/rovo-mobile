@@ -32,8 +32,6 @@ abstract class GenerateRuntimeConfigsTask : DefaultTask() {
         localPropertiesFile.asFile.orNull?.takeIf { it.exists() }?.inputStream()?.use { props.load(it) }
 
         val outDir = outputDir.get().asFile
-        // Supabase removed - local-only app
-
         outDir.resolve("com/rovo/app/features/tmdb/TmdbConfig.kt").delete()
 
         outDir.resolve("com/rovo/app/features/trakt").apply {
@@ -276,7 +274,6 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kermit)
-    // Supabase removed - local-only app
             implementation(libs.reorderable)
         }
         commonTest.dependencies {

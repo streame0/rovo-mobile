@@ -33,6 +33,5 @@ object NetworkStatusRepository {
     }
 
     fun updateAddonProbeTargets(targets: List<String>) {
-        // no-op: addon probing removed with Supabase
     }
 }

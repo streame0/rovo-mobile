@@ -1,7 +1,6 @@
 package com.rovo.app.features.settings
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material.icons.rounded.Settings
@@ -9,7 +8,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import rovo.composeapp.generated.resources.Res
 import rovo.composeapp.generated.resources.compose_settings_category_about
 import rovo.composeapp.generated.resources.compose_settings_category_general
-import rovo.composeapp.generated.resources.compose_settings_page_account
 import rovo.composeapp.generated.resources.compose_settings_page_addons
 import rovo.composeapp.generated.resources.compose_settings_page_appearance
 import rovo.composeapp.generated.resources.compose_settings_page_content_discovery
@@ -28,14 +26,12 @@ import rovo.composeapp.generated.resources.compose_settings_page_root
 import rovo.composeapp.generated.resources.compose_settings_page_supporters_contributors
 import rovo.composeapp.generated.resources.compose_settings_page_tmdb_enrichment
 import rovo.composeapp.generated.resources.compose_settings_page_trakt
-import rovo.composeapp.generated.resources.settings_account
 import org.jetbrains.compose.resources.StringResource
 
 internal enum class SettingsCategory(
     val labelRes: StringResource,
     val icon: ImageVector,
 ) {
-    Account(Res.string.settings_account, Icons.Rounded.AccountCircle),
     General(Res.string.compose_settings_category_general, Icons.Rounded.Settings),
     About(Res.string.compose_settings_category_about, Icons.Rounded.Info),
 }
@@ -49,11 +45,6 @@ internal enum class SettingsPage(
         titleRes = Res.string.compose_settings_page_root,
         category = SettingsCategory.General,
         parentPage = null,
-    ),
-    Account(
-        titleRes = Res.string.compose_settings_page_account,
-        category = SettingsCategory.Account,
-        parentPage = Root,
     ),
     SupportersContributors(
         titleRes = Res.string.compose_settings_page_supporters_contributors,
@@ -137,7 +128,7 @@ internal enum class SettingsPage(
     ),
     TraktAuthentication(
         titleRes = Res.string.compose_settings_page_trakt,
-        category = SettingsCategory.Account,
+        category = SettingsCategory.General,
         parentPage = Root,
     ),
 }

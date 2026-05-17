@@ -96,7 +96,6 @@ import com.rovo.app.core.ui.NativeNavigationTab
 import com.rovo.app.core.ui.NativeTabBridge
 import com.rovo.app.core.ui.isLiquidGlassNativeTabBarSupported
 import com.rovo.app.core.ui.localizedContinueWatchingSubtitle
-import com.rovo.app.features.auth.AuthScreen
 import com.rovo.app.features.addons.AddonRepository
 import com.rovo.app.features.catalog.CatalogRepository
 import com.rovo.app.features.catalog.CatalogScreen
@@ -145,7 +144,6 @@ import com.rovo.app.features.settings.MetaScreenSettingsScreen
 import com.rovo.app.features.settings.ContinueWatchingSettingsScreen
 import com.rovo.app.features.settings.AddonsSettingsScreen
 import com.rovo.app.features.settings.PluginsSettingsScreen
-import com.rovo.app.features.settings.AccountSettingsScreen
 import com.rovo.app.features.settings.SupportersContributorsSettingsScreen
 import com.rovo.app.features.settings.LicensesAttributionsSettingsScreen
 import com.rovo.app.features.settings.ThemeSettingsRepository
@@ -180,7 +178,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import rovo.composeapp.generated.resources.*
-import rovo.composeapp.generated.resources.app_logo_wordmark
+
 import rovo.composeapp.generated.resources.compose_catalog_subtitle_library
 import rovo.composeapp.generated.resources.compose_catalog_subtitle_trakt_library
 import rovo.composeapp.generated.resources.compose_nav_home
@@ -234,9 +232,6 @@ object AddonsSettingsRoute
 
 @Serializable
 object PluginsSettingsRoute
-
-@Serializable
-object AccountSettingsRoute
 
 @Serializable
 object SupportersContributorsSettingsRoute
@@ -299,8 +294,6 @@ private fun PlayerLaunch.toExternalPlayerPlaybackRequest(): ExternalPlayerPlayba
     )
 
 private enum class AppGateScreen {
-    Loading,
-    Auth,
     ProfileSelection,
     ProfileEdit,
     Main,
@@ -329,14 +322,14 @@ fun App() {
     RovoTheme(appTheme = selectedTheme, amoled = amoledEnabled) {
         LaunchedEffect(Unit) {
             AuthRepository.initialize()
-        }
-
-        LaunchedEffect(Unit) {
+            val authState = AuthRepository.state.value
+            if (authState is AuthState.Unauthenticated) {
+                AuthRepository.signInAnonymously()
+            }
             ProfileRepository.loadCachedProfiles()
             AvatarRepository.fetchAvatars()
         }
 
-        val authState by AuthRepository.state.collectAsStateWithLifecycle()
         val profileState by ProfileRepository.state.collectAsStateWithLifecycle()
         val profileAvatars by AvatarRepository.avatars.collectAsStateWithLifecycle()
 
@@ -360,65 +353,8 @@ fun App() {
             )
         }
 
-        var gateScreen by rememberSaveable { mutableStateOf(AppGateScreen.Loading.name) }
+        var gateScreen by rememberSaveable { mutableStateOf(AppGateScreen.ProfileSelection.name) }
         var editingProfile by remember { mutableStateOf<RovoProfile?>(null) }
-        var isNewProfile by remember { mutableStateOf(false) }
-        var autoSkipProfileSelection by rememberSaveable { mutableStateOf(false) }
-
-        fun enterProfileGate(profiles: List<RovoProfile>, syncOnEnter: Boolean) {
-            if (profiles.isEmpty()) {
-                autoSkipProfileSelection = true
-                gateScreen = AppGateScreen.ProfileSelection.name
-                return
-            }
-
-            autoSkipProfileSelection = true
-            if (profiles.size == 1) {
-                val onlyProfile = profiles.first()
-                ProfileRepository.selectProfile(onlyProfile.profileIndex)
-                gateScreen = AppGateScreen.Main.name
-                autoSkipProfileSelection = false
-            } else {
-                gateScreen = AppGateScreen.ProfileSelection.name
-            }
-        }
-
-        LaunchedEffect(authState) {
-            when (authState) {
-                is AuthState.Loading -> {
-                    gateScreen = AppGateScreen.Loading.name
-                }
-                is AuthState.Unauthenticated -> {
-                    ProfileRepository.clearInMemory()
-                    gateScreen = AppGateScreen.Auth.name
-                }
-                is AuthState.Authenticated -> {
-                    val authenticatedState = authState as AuthState.Authenticated
-                    ProfileRepository.ensureLoaded(authenticatedState.userId)
-                    if (gateScreen == AppGateScreen.Loading.name || gateScreen == AppGateScreen.Auth.name) {
-                        enterProfileGate(ProfileRepository.state.value.profiles, syncOnEnter = false)
-                    }
-                }
-            }
-        }
-
-        LaunchedEffect((authState as? AuthState.Authenticated)?.userId) {
-            val authenticatedState = authState as? AuthState.Authenticated ?: return@LaunchedEffect
-            ProfileRepository.ensureLoaded(authenticatedState.userId)
-        }
-
-        LaunchedEffect(gateScreen, autoSkipProfileSelection, profileState.profiles) {
-            if (
-                autoSkipProfileSelection &&
-                gateScreen == AppGateScreen.ProfileSelection.name &&
-                profileState.profiles.size == 1
-            ) {
-                val onlyProfile = profileState.profiles.first()
-                ProfileRepository.selectProfile(onlyProfile.profileIndex)
-                gateScreen = AppGateScreen.Main.name
-                autoSkipProfileSelection = false
-            }
-        }
 
         AnimatedContent(
             targetState = gateScreen,
@@ -429,24 +365,9 @@ fun App() {
             },
         ) { currentGate ->
             when (currentGate) {
-                AppGateScreen.Loading.name -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(MaterialTheme.colorScheme.background),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
-                    }
-                }
-                AppGateScreen.Auth.name -> {
-                    AuthScreen(modifier = Modifier.fillMaxSize())
-                }
                 AppGateScreen.ProfileSelection.name -> {
                     PlatformBackHandler(enabled = gateScreen == AppGateScreen.ProfileSelection.name) {
-                        if (!autoSkipProfileSelection) {
-                            gateScreen = AppGateScreen.Main.name
-                        }
+                        gateScreen = AppGateScreen.Main.name
                     }
                     ProfileSelectionScreen(
                         onProfileSelected = { profile ->
@@ -455,12 +376,10 @@ fun App() {
                         },
                         onEditProfile = { profile ->
                             editingProfile = profile
-                            isNewProfile = false
                             gateScreen = AppGateScreen.ProfileEdit.name
                         },
                         onAddProfile = {
                             editingProfile = null
-                            isNewProfile = true
                             gateScreen = AppGateScreen.ProfileEdit.name
                         },
                         modifier = Modifier.fillMaxSize(),
@@ -480,7 +399,6 @@ fun App() {
                 AppGateScreen.Main.name -> {
                     MainAppContent(
                         onSwitchProfile = {
-                            autoSkipProfileSelection = false
                             gateScreen = AppGateScreen.ProfileSelection.name
                         },
                     )
@@ -1000,7 +918,6 @@ private fun MainAppContent(
                                                 navController.navigate(PluginsSettingsRoute)
                                             }
                                         },
-                                        onAccountSettingsClick = { navController.navigate(AccountSettingsRoute) },
                                         onSupportersContributorsSettingsClick = {
                                             navController.navigate(SupportersContributorsSettingsRoute)
                                         },
@@ -1779,15 +1696,6 @@ private fun MainAppContent(
                         )
                     }
                 }
-                composable<AccountSettingsRoute> { backStackEntry ->
-                    val onBack = rememberGuardedPopBackStack(
-                        navController = navController,
-                        backStackEntry = backStackEntry,
-                    )
-                    AccountSettingsScreen(
-                        onBack = onBack,
-                    )
-                }
                 composable<SupportersContributorsSettingsRoute> { backStackEntry ->
                     val onBack = rememberGuardedPopBackStack(
                         navController = navController,
@@ -2079,7 +1987,6 @@ private fun AppTabHost(
     onDownloadsSettingsClick: () -> Unit = {},
     onAddonsSettingsClick: () -> Unit = {},
     onPluginsSettingsClick: () -> Unit = {},
-    onAccountSettingsClick: () -> Unit = {},
     onSupportersContributorsSettingsClick: () -> Unit = {},
     onLicensesAttributionsSettingsClick: () -> Unit = {},
     onCheckForUpdatesClick: (() -> Unit)? = null,
@@ -2133,7 +2040,6 @@ private fun AppTabHost(
                         onDownloadsClick = onDownloadsSettingsClick,
                         onAddonsClick = onAddonsSettingsClick,
                         onPluginsClick = onPluginsSettingsClick,
-                        onAccountClick = onAccountSettingsClick,
                         onSupportersContributorsClick = onSupportersContributorsSettingsClick,
                         onLicensesAttributionsClick = onLicensesAttributionsSettingsClick,
                         onCheckForUpdatesClick = onCheckForUpdatesClick,
@@ -2301,19 +2207,6 @@ private fun AppLaunchOverlay(
             .zIndex(10f),
         contentAlignment = Alignment.Center,
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Image(
-                painter = painterResource(Res.drawable.app_logo_wordmark),
-                contentDescription = stringResource(Res.string.app_brand_name),
-                modifier = Modifier
-                    .fillMaxWidth(0.48f)
-                    .height(44.dp),
-                contentScale = ContentScale.Fit,
-            )
-            Spacer(modifier = Modifier.height(24.dp))
-            CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
-        }
+        CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
     }
 }

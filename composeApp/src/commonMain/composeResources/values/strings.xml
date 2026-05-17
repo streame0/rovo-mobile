@@ -1,4 +1,4 @@
-<resources>
+﻿<resources>
     <string name="about_licenses_attributions_subtitle">Data sources, acknowledgements, and platform licenses</string>
     <string name="about_supporters_contributors_subtitle">Open recognition and project credits</string>
     <string name="action_back">Back</string>
@@ -102,7 +102,7 @@
     <string name="collections_editor_show_all_tab">Show \"All\" Tab</string>
     <string name="collections_editor_show_gif_when_configured_desc">Play the configured GIF instead of the static cover when available.</string>
     <string name="collections_editor_show_gif_when_configured">Show GIF When Configured</string>
-    <string name="collections_editor_source_count">%1$d source(s) · %2$s</string>
+    <string name="collections_editor_source_count">%1$d source(s) Â· %2$s</string>
     <string name="collections_editor_tile_shape">Tile Shape</string>
     <string name="collections_editor_view_mode_rows">Rows</string>
     <string name="collections_editor_view_mode_tabs">Tabs</string>
@@ -282,16 +282,12 @@
     <string name="collections_pinned">Pinned</string>
     <string name="collections_tab_all">All</string>
     <string name="collections_your_collections">Your Collections</string>
-    <string name="compose_about_made_with">Made with ❤️ by Tapframe and friends</string>
+    <string name="compose_about_made_with">Made with â¤ï¸ by Tapframe and friends</string>
     <string name="compose_about_version_format">Version %1$s (%2$s)</string>
     <string name="compose_action_off">Off</string>
     <string name="compose_action_on">On</string>
     <string name="compose_action_pause">Pause</string>
     <string name="compose_action_reload">Reload</string>
-    <string name="compose_auth_already_have_account">Already have an account? </string>
-    <string name="compose_auth_continue_without_account">Continue Without Account</string>
-    <string name="compose_auth_create_account">Create Account</string>
-    <string name="compose_auth_dont_have_account">Don't have an account? </string>
     <string name="compose_auth_email">Email</string>
     <string name="compose_auth_or_separator">  or  </string>
     <string name="compose_auth_password">Password</string>
@@ -317,7 +313,7 @@
     <string name="compose_player_currently_playing">Currently playing</string>
     <string name="compose_player_episode_code_episode_only">E%1$d</string>
     <string name="compose_player_episode_code_full">S%1$dE%2$d</string>
-    <string name="compose_player_episode_title_format">S%1$dE%2$d • %3$s</string>
+    <string name="compose_player_episode_title_format">S%1$dE%2$d â€¢ %3$s</string>
     <string name="compose_player_episodes">Episodes</string>
     <string name="compose_player_font_size">Font Size</string>
     <string name="compose_player_font_size_value">%1$dsp</string>
@@ -374,7 +370,6 @@
     <string name="compose_search_remove_recent_search">Remove recent search</string>
     <string name="compose_settings_category_about">About</string>
     <string name="compose_settings_category_general">General</string>
-    <string name="compose_settings_page_account">Account</string>
     <string name="compose_settings_page_addons">Addons</string>
     <string name="compose_settings_page_appearance">Layout</string>
     <string name="compose_settings_page_content_discovery">Content &amp; Discovery</string>
@@ -394,8 +389,6 @@
     <string name="compose_settings_page_tmdb_enrichment">TMDB Enrichment</string>
     <string name="compose_settings_page_trakt">Trakt</string>
     <string name="compose_settings_root_about_section">ABOUT</string>
-    <string name="compose_settings_root_account_description">Account and sync status</string>
-    <string name="compose_settings_root_account_section">ACCOUNT</string>
     <string name="compose_settings_root_appearance_description">Home structure and poster styles</string>
     <string name="compose_settings_root_check_updates_description">Download latest release</string>
     <string name="compose_settings_root_check_updates_title">Check for updates</string>
@@ -433,7 +426,7 @@
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Used for playback on Android builds.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Licensed under the Apache License, Version 2.0.</string>
-    <string name="compose_trakt_list_picker_loading">Loading your Trakt lists…</string>
+    <string name="compose_trakt_list_picker_loading">Loading your Trakt listsâ€¦</string>
     <string name="compose_trakt_list_picker_subtitle">Choose where to save this title on Trakt</string>
     <string name="action_donate">Donate</string>
     <string name="cw_action_go_to_details">Go to details</string>
@@ -458,10 +451,10 @@
     <string name="downloads_section_movies">Movies</string>
     <string name="downloads_section_shows">Shows</string>
     <string name="downloads_show_downloads">Show Downloads</string>
-    <string name="downloads_status_completed">Completed • %1$s</string>
-    <string name="downloads_status_downloading">Downloading • %1$s</string>
+    <string name="downloads_status_completed">Completed â€¢ %1$s</string>
+    <string name="downloads_status_downloading">Downloading â€¢ %1$s</string>
     <string name="downloads_status_failed">Failed</string>
-    <string name="downloads_status_paused">Paused • %1$s</string>
+    <string name="downloads_status_paused">Paused â€¢ %1$s</string>
     <string name="episodes_cd_watched">Watched</string>
     <string name="episodes_season">Season %1$d</string>
     <string name="episodes_specials">Specials</string>
@@ -473,19 +466,6 @@
     <string name="home_view_all">View All</string>
     <string name="play_manually">Play manually</string>
     <string name="poster_logo_content_description">%1$s logo</string>
-    <string name="settings_account">Account</string>
-    <string name="settings_account_delete_account">Delete Account</string>
-    <string name="settings_account_delete_account_description">This will permanently delete your account and all associated data.</string>
-    <string name="settings_account_delete_confirm_message">This action cannot be undone. All your data, profiles, and sync history will be permanently removed.</string>
-    <string name="settings_account_delete_confirm_title">Delete Account?</string>
-    <string name="settings_account_email">Email</string>
-    <string name="settings_account_not_signed_in">Not signed in</string>
-    <string name="settings_account_sign_out">Sign Out</string>
-    <string name="settings_account_sign_out_confirm_message">You will be returned to the login screen.</string>
-    <string name="settings_account_sign_out_confirm_title">Sign Out?</string>
-    <string name="settings_account_status">Status</string>
-    <string name="settings_account_status_anonymous">Anonymous</string>
-    <string name="settings_account_status_signed_in">Signed in</string>
     <string name="settings_appearance_amoled_black">AMOLED Black</string>
     <string name="settings_appearance_amoled_description">Use pure black backgrounds for OLED screens.</string>
     <string name="settings_appearance_app_language">App Language</string>
@@ -497,14 +477,14 @@
     <string name="settings_appearance_section_display">DISPLAY</string>
     <string name="settings_appearance_section_home">HOME</string>
     <string name="settings_appearance_section_theme">THEME</string>
-    <string name="settings_homescreen_collection_with_addon">Collection • %1$s</string>
+    <string name="settings_homescreen_collection_with_addon">Collection â€¢ %1$s</string>
     <string name="settings_homescreen_display_name">Display Name</string>
     <string name="settings_homescreen_empty_message">Install an addon with board-compatible catalogs to configure Homescreen rows.</string>
     <string name="settings_homescreen_empty_title">No home catalogs</string>
     <string name="settings_homescreen_hero_source">Hero source</string>
     <string name="settings_homescreen_hidden">Hidden</string>
     <string name="settings_homescreen_keep_home_focused">Keep Home focused</string>
-    <string name="settings_homescreen_limit_reached">%1$s • Limit reached (max %2$d)</string>
+    <string name="settings_homescreen_limit_reached">%1$s â€¢ Limit reached (max %2$d)</string>
     <string name="settings_homescreen_no_sources_selected">No hero sources selected</string>
     <string name="settings_homescreen_not_in_hero">Not in hero</string>
     <string name="settings_homescreen_pin_to_move_toast">Remove pin to top from collection to move</string>
@@ -523,7 +503,7 @@
     <string name="layout_hide_unreleased_sub">Hide movies and shows that haven't been released yet.</string>
     <string name="settings_homescreen_hide_catalog_underline">Hide Catalog Underline</string>
     <string name="settings_homescreen_hide_catalog_underline_description">Remove the accent line under catalog and collection titles throughout the app.</string>
-    <string name="settings_homescreen_summary">%1$d of %2$d catalogs visible • %3$d hero sources selected</string>
+    <string name="settings_homescreen_summary">%1$d of %2$d catalogs visible â€¢ %3$d hero sources selected</string>
     <string name="settings_homescreen_summary_hint">Open a catalog only when you need to rename or reorder it.</string>
     <string name="settings_homescreen_visible">Visible</string>
     <string name="settings_hide_secret">Hide value</string>
@@ -588,7 +568,7 @@
     <string name="settings_integrations_section_title">Integrations</string>
     <string name="settings_integrations_tmdb_description">Metadata enrichment controls</string>
     <string name="settings_integrations_mdblist_description">External ratings providers</string>
-    <string name="settings_integrations_debrid_description">Cloud account sources</string>
+    <string name="settings_integrations_debrid_description">External account sources</string>
     <string name="settings_debrid_section_title">Debrid</string>
     <string name="settings_debrid_enable">Enable sources</string>
     <string name="settings_debrid_enable_description">Show playable results from connected accounts.</string>
@@ -908,8 +888,8 @@
     <string name="theme_violet">Violet</string>
     <string name="theme_white">White</string>
     <string name="player_next_episode">Next Episode</string>
-    <string name="player_next_episode_finding_source">Finding source…</string>
-    <string name="player_next_episode_playing_via_countdown">Playing via %1$s in %2$d…</string>
+    <string name="player_next_episode_finding_source">Finding sourceâ€¦</string>
+    <string name="player_next_episode_playing_via_countdown">Playing via %1$s in %2$dâ€¦</string>
     <string name="player_next_episode_thumbnail">Next episode thumbnail</string>
     <string name="player_next_episode_unaired">Unaired</string>
     <string name="player_skip">Skip</string>
@@ -1017,11 +997,11 @@
     <string name="details_series_unpublished">Episodes have not been published by this addon yet.</string>
     <string name="details_servers_unreachable">Your device is online, but Rovo could not reach required servers.</string>
     <string name="details_show_less">Show Less</string>
-    <string name="details_show_more">Show More ▾</string>
+    <string name="details_show_more">Show More â–¾</string>
     <string name="details_writer">Writer</string>
     <string name="discover_all_genres">All Genres</string>
     <string name="discover_catalog">Catalog</string>
-    <string name="discover_catalog_context">%1$s • %2$s</string>
+    <string name="discover_catalog_context">%1$s â€¢ %2$s</string>
     <string name="discover_empty_load_failed_message">The selected catalog failed to return discover items.</string>
     <string name="discover_empty_load_failed_title">Could not load discover</string>
     <string name="discover_empty_no_catalogs_message">Installed addons do not expose board-compatible catalogs for discover.</string>
@@ -1118,7 +1098,7 @@
     <string name="provider_downloaded">Downloaded</string>
     <string name="resume_prompt_action">Resume</string>
     <string name="streams_active_scrapers">Active scrapers</string>
-    <string name="streams_checking_more_addons">Checking more addons…</string>
+    <string name="streams_checking_more_addons">Checking more addonsâ€¦</string>
     <string name="streams_copy_link">Copy stream link</string>
     <string name="streams_download_file">Download file</string>
     <string name="streams_open_external_player">Open in external player</string>
@@ -1132,9 +1112,9 @@
     <string name="streams_episode_badge">S%1$d E%2$d</string>
     <string name="streams_episode_fallback_title">Episode</string>
     <string name="streams_episode_title_with_name">S%1$dE%2$d - %3$s</string>
-    <string name="streams_fetching">Fetching…</string>
-    <string name="streams_finding_source">Finding source…</string>
-    <string name="streams_finding_streams">Finding streams…</string>
+    <string name="streams_fetching">Fetchingâ€¦</string>
+    <string name="streams_finding_source">Finding sourceâ€¦</string>
+    <string name="streams_finding_streams">Finding streamsâ€¦</string>
     <string name="streams_link_copied">Stream link copied</string>
     <string name="streams_no_direct_link">No direct stream link available</string>
     <string name="streams_no_metadata">No metadata available</string>
@@ -1153,7 +1133,7 @@
     <string name="trailer_unable_to_play">Unable to play trailer</string>
     <string name="trakt_lists_load_failed">Failed to load Trakt lists</string>
     <string name="trakt_lists_update_failed">Failed to update Trakt lists</string>
-    <string name="updates_asset_line">%1$s • %2$s</string>
+    <string name="updates_asset_line">%1$s â€¢ %2$s</string>
     <string name="updates_check_failed">Update check failed</string>
     <string name="updates_download_failed">Download failed</string>
     <string name="updates_downloading_progress">Downloading %1$d%</string>
@@ -1173,13 +1153,12 @@
     <string name="addon_invalid_url">Enter a valid addon URL</string>
     <string name="addon_load_manifest_failed">Unable to load manifest</string>
     <string name="app_brand_name">Rovo</string>
-    <string name="auth_account_deletion_failed">Account deletion failed</string>
     <string name="auth_sign_in_failed">Sign-in failed</string>
     <string name="auth_sign_out_failed">Sign-out failed</string>
     <string name="auth_sign_up_failed">Sign-up failed</string>
     <string name="catalog_load_failed">Unable to load catalog items.</string>
     <string name="continue_watching_up_next">Up Next</string>
-    <string name="continue_watching_up_next_episode">Up Next • S%1$dE%2$d</string>
+    <string name="continue_watching_up_next_episode">Up Next â€¢ S%1$dE%2$d</string>
     <string name="detail_logo_content_description">%1$s logo</string>
     <string name="details_comments_load_failed">Failed to load comments</string>
     <string name="details_load_failed_all_addons">Could not load details from any addon.</string>
@@ -1189,8 +1168,8 @@
     <string name="downloads_channel_description">Shows live download progress and controls.</string>
     <string name="downloads_channel_name">Downloads</string>
     <string name="downloads_live_completed">Download completed</string>
-    <string name="downloads_live_downloading">Downloading %1$s • %2$s</string>
-    <string name="downloads_live_downloading_with_total">Downloading %1$s • %2$s / %3$s</string>
+    <string name="downloads_live_downloading">Downloading %1$s â€¢ %2$s</string>
+    <string name="downloads_live_downloading_with_total">Downloading %1$s â€¢ %2$s / %3$s</string>
     <string name="downloads_live_failed">Download failed</string>
     <string name="downloads_live_paused">Paused %1$s</string>
     <string name="library_remove_confirm">Remove</string>
@@ -1270,7 +1249,7 @@
     <string name="details_browse_load_failed">Could not load %1$s</string>
     <string name="details_browse_rail_popular">Popular</string>
     <string name="details_browse_rail_recent">Recent</string>
-    <string name="details_browse_rail_title">%1$s • %2$s</string>
+    <string name="details_browse_rail_title">%1$s â€¢ %2$s</string>
     <string name="details_browse_rail_top_rated">Top Rated</string>
     <string name="details_certification">Certification</string>
     <string name="details_movie_details">Movie Details</string>
@@ -1308,7 +1287,7 @@
     <string name="media_series">Series</string>
     <string name="media_tv">TV</string>
     <string name="notifications_episode_release_body_code">%1$s is out now</string>
-    <string name="notifications_episode_release_body_code_title">%1$s • %2$s is out now</string>
+    <string name="notifications_episode_release_body_code_title">%1$s â€¢ %2$s is out now</string>
     <string name="notifications_episode_release_body_generic">A new episode is out now</string>
     <string name="notifications_episode_release_body_title">%1$s is out now</string>
     <string name="notifications_channel_episode_releases_name">Episode Releases</string>
@@ -1323,3 +1302,4 @@
     <string name="unit_bytes_mb">MB</string>
     <string name="unit_bytes_gb">GB</string>
 </resources>
+

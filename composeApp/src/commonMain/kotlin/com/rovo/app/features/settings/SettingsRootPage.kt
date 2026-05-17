@@ -4,8 +4,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AccountCircle
-import androidx.compose.material.icons.rounded.CloudDownload
+import androidx.compose.material.icons.rounded.Download
 import androidx.compose.material.icons.rounded.Extension
 import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.Info
@@ -23,14 +22,12 @@ import com.rovo.app.core.build.AppVersionConfig
 import rovo.composeapp.generated.resources.Res
 import rovo.composeapp.generated.resources.compose_about_made_with
 import rovo.composeapp.generated.resources.compose_about_version_format
-import rovo.composeapp.generated.resources.compose_settings_page_account
 import rovo.composeapp.generated.resources.compose_settings_page_appearance
 import rovo.composeapp.generated.resources.compose_settings_page_integrations
 import rovo.composeapp.generated.resources.compose_settings_page_licenses_attributions
 import rovo.composeapp.generated.resources.compose_settings_page_notifications
 import rovo.composeapp.generated.resources.compose_settings_page_playback
 import rovo.composeapp.generated.resources.compose_settings_page_supporters_contributors
-import rovo.composeapp.generated.resources.compose_settings_root_account_description
 import rovo.composeapp.generated.resources.compose_settings_root_appearance_description
 import rovo.composeapp.generated.resources.compose_settings_root_check_updates_description
 import rovo.composeapp.generated.resources.compose_settings_root_check_updates_title
@@ -44,7 +41,6 @@ import rovo.composeapp.generated.resources.compose_settings_root_switch_profile_
 import rovo.composeapp.generated.resources.compose_settings_root_switch_profile_title
 import rovo.composeapp.generated.resources.compose_settings_root_trakt_description
 import rovo.composeapp.generated.resources.compose_settings_root_about_section
-import rovo.composeapp.generated.resources.compose_settings_root_account_section
 import rovo.composeapp.generated.resources.compose_settings_page_content_discovery
 import rovo.composeapp.generated.resources.compose_settings_page_trakt
 import rovo.composeapp.generated.resources.settings_playback_subtitle
@@ -64,48 +60,10 @@ internal fun LazyListScope.settingsRootContent(
     onLicensesAttributionsClick: () -> Unit,
     onCheckForUpdatesClick: (() -> Unit)? = null,
     onDownloadsClick: () -> Unit,
-    onAccountClick: () -> Unit,
     onSwitchProfileClick: (() -> Unit)? = null,
-    showAccountSection: Boolean = true,
     showGeneralSection: Boolean = true,
     showAboutSection: Boolean = true,
 ) {
-    if (showAccountSection) {
-        item {
-            SettingsSection(
-                title = stringResource(Res.string.compose_settings_root_account_section),
-                isTablet = isTablet,
-            ) {
-                SettingsGroup(isTablet = isTablet) {
-                    if (onSwitchProfileClick != null) {
-                        SettingsNavigationRow(
-                            title = stringResource(Res.string.compose_settings_root_switch_profile_title),
-                            description = stringResource(Res.string.compose_settings_root_switch_profile_description),
-                            icon = Icons.Rounded.People,
-                            isTablet = isTablet,
-                            onClick = onSwitchProfileClick,
-                        )
-                        SettingsGroupDivider(isTablet = isTablet)
-                    }
-                    SettingsNavigationRow(
-                        title = stringResource(Res.string.compose_settings_page_account),
-                        description = stringResource(Res.string.compose_settings_root_account_description),
-                        icon = Icons.Rounded.AccountCircle,
-                        isTablet = isTablet,
-                        onClick = onAccountClick,
-                    )
-                    SettingsGroupDivider(isTablet = isTablet)
-                    SettingsNavigationRow(
-                        title = stringResource(Res.string.compose_settings_page_trakt),
-                        description = stringResource(Res.string.compose_settings_root_trakt_description),
-                        iconPainter = integrationLogoPainter(IntegrationLogo.Trakt),
-                        isTablet = isTablet,
-                        onClick = onTraktClick,
-                    )
-                }
-            }
-        }
-    }
     if (showGeneralSection) {
         item {
             SettingsSection(
@@ -132,7 +90,7 @@ internal fun LazyListScope.settingsRootContent(
                     SettingsNavigationRow(
                         title = stringResource(Res.string.compose_settings_root_downloads_title),
                         description = stringResource(Res.string.compose_settings_root_downloads_description),
-                        icon = Icons.Rounded.CloudDownload,
+                        icon = Icons.Rounded.Download,
                         isTablet = isTablet,
                         onClick = onDownloadsClick,
                     )
@@ -159,6 +117,14 @@ internal fun LazyListScope.settingsRootContent(
                         icon = Icons.Rounded.Notifications,
                         isTablet = isTablet,
                         onClick = onNotificationsClick,
+                    )
+                    SettingsGroupDivider(isTablet = isTablet)
+                    SettingsNavigationRow(
+                        title = stringResource(Res.string.compose_settings_page_trakt),
+                        description = stringResource(Res.string.compose_settings_root_trakt_description),
+                        iconPainter = integrationLogoPainter(IntegrationLogo.Trakt),
+                        isTablet = isTablet,
+                        onClick = onTraktClick,
                     )
                 }
             }
@@ -191,7 +157,7 @@ internal fun LazyListScope.settingsRootContent(
                         SettingsNavigationRow(
                             title = stringResource(Res.string.compose_settings_root_check_updates_title),
                             description = stringResource(Res.string.compose_settings_root_check_updates_description),
-                            icon = Icons.Rounded.CloudDownload,
+                            icon = Icons.Rounded.Download,
                             isTablet = isTablet,
                             onClick = onCheckForUpdatesClick,
                         )

@@ -5,10 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +16,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -58,7 +54,6 @@ import kotlinx.coroutines.launch
 import rovo.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ProfileEditScreen(
     profile: RovoProfile? = null,
@@ -163,56 +158,6 @@ fun ProfileEditScreen(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.error,
                         )
-                    }
-                }
-            }
-        }
-
-        item {
-            RovoSurfaceCard {
-                Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                    Text(
-                        text = stringResource(Res.string.profile_choose_avatar),
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.onSurface,
-                    )
-                    Text(
-                        text = selectedAvatarItem?.displayName
-                            ?: if (avatars.isEmpty()) {
-                                stringResource(Res.string.profile_loading_avatars)
-                            } else {
-                                stringResource(Res.string.profile_select_avatar)
-                            },
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-
-                    if (avatars.isNotEmpty()) {
-                        val avatarSpacing = 10.dp
-                        val minAvatarSize = 58.dp
-                        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-                            val columns = (((maxWidth + avatarSpacing) / (minAvatarSize + avatarSpacing)).toInt())
-                                .coerceAtLeast(1)
-                            val avatarSize = (maxWidth - avatarSpacing * (columns - 1)) / columns
-
-                            FlowRow(
-                                horizontalArrangement = Arrangement.spacedBy(avatarSpacing),
-                                verticalArrangement = Arrangement.spacedBy(avatarSpacing),
-                                maxItemsInEachRow = columns,
-                            ) {
-                                avatars.forEach { avatar ->
-                                    AvatarChoiceItem(
-                                        avatar = avatar,
-                                        size = avatarSize,
-                                        isSelected = customAvatarUrl == null && avatar.id == selectedAvatarId,
-                                        onClick = {
-                                            avatarUrl = ""
-                                            selectedAvatarId = avatar.id
-                                        },
-                                    )
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -496,56 +441,6 @@ private fun ProfileIdentityCard(
                 checked = usesPrimaryAddons,
                 onCheckedChange = onUsesPrimaryAddonsChange,
             )
-        }
-    }
-}
-
-@Composable
-private fun AvatarChoiceItem(
-    avatar: AvatarCatalogItem,
-    size: androidx.compose.ui.unit.Dp,
-    isSelected: Boolean,
-    onClick: () -> Unit,
-) {
-    Box(
-        modifier = Modifier
-            .size(size)
-            .clip(CircleShape)
-            .background(
-                avatar.bgColor?.let(::parseHexColor)
-                    ?: MaterialTheme.colorScheme.surfaceVariant,
-            )
-            .border(
-                width = if (isSelected) 3.dp else 1.dp,
-                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant,
-                shape = CircleShape,
-            )
-            .clickable(onClick = onClick),
-        contentAlignment = Alignment.Center,
-    ) {
-        AsyncImage(
-            model = avatarStorageUrl(avatar.storagePath),
-            contentDescription = avatar.displayName,
-            modifier = Modifier.fillMaxSize().clip(CircleShape),
-            contentScale = ContentScale.Crop,
-        )
-
-        if (isSelected) {
-            Box(
-                modifier = Modifier
-                    .size(20.dp)
-                    .align(Alignment.BottomEnd)
-                    .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.primary),
-                contentAlignment = Alignment.Center,
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.Check,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier.size(12.dp),
-                )
-            }
         }
     }
 }

@@ -12,9 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Close
-import androidx.compose.material.icons.rounded.CloudDownload
+import androidx.compose.material.icons.rounded.Download
 import androidx.compose.material.icons.rounded.CollectionsBookmark
 import androidx.compose.material.icons.rounded.Extension
 import androidx.compose.material.icons.rounded.Favorite
@@ -25,7 +24,6 @@ import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material.icons.rounded.Palette
-import androidx.compose.material.icons.rounded.People
 import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material.icons.rounded.Style
@@ -79,14 +77,11 @@ internal data class SettingsSearchEntry(
 internal fun settingsSearchEntries(
     pluginsEnabled: Boolean,
     liquidGlassNativeTabBarSupported: Boolean,
-    switchProfileAvailable: Boolean,
     checkForUpdatesAvailable: Boolean,
 ): List<SettingsSearchEntry> {
-    val accountCategory = stringResource(SettingsCategory.Account.labelRes)
     val generalCategory = stringResource(SettingsCategory.General.labelRes)
     val aboutCategory = stringResource(SettingsCategory.About.labelRes)
 
-    val accountPage = stringResource(Res.string.compose_settings_page_account)
     val traktPage = stringResource(Res.string.compose_settings_page_trakt)
     val layoutPage = stringResource(Res.string.compose_settings_page_appearance)
     val contentDiscoveryPage = stringResource(Res.string.compose_settings_page_content_discovery)
@@ -171,32 +166,12 @@ internal fun settingsSearchEntries(
         )
     }
 
-    if (switchProfileAvailable) {
-        add(
-            key = "switch-profile",
-            title = stringResource(Res.string.compose_settings_root_switch_profile_title),
-            description = stringResource(Res.string.compose_settings_root_switch_profile_description),
-            page = accountPage,
-            section = stringResource(Res.string.compose_settings_root_account_section),
-            category = accountCategory,
-            icon = Icons.Rounded.People,
-            target = SettingsSearchTarget.SwitchProfile,
-        )
-    }
-    addPage(
-        page = SettingsPage.Account,
-        key = "account",
-        title = accountPage,
-        description = stringResource(Res.string.compose_settings_root_account_description),
-        category = accountCategory,
-        icon = Icons.Rounded.AccountCircle,
-    )
     addPage(
         page = SettingsPage.TraktAuthentication,
         key = "trakt",
         title = traktPage,
         description = stringResource(Res.string.compose_settings_root_trakt_description),
-        category = accountCategory,
+        category = generalCategory,
         icon = Icons.Rounded.Link,
     )
     addPage(
@@ -218,7 +193,7 @@ internal fun settingsSearchEntries(
         title = downloadsPage,
         description = stringResource(Res.string.compose_settings_root_downloads_description),
         category = generalCategory,
-        icon = Icons.Rounded.CloudDownload,
+        icon = Icons.Rounded.Download,
         target = SettingsSearchTarget.Downloads,
     )
     addPage(
@@ -298,29 +273,10 @@ internal fun settingsSearchEntries(
             page = supportersPage,
             section = stringResource(Res.string.compose_settings_root_about_section),
             category = aboutCategory,
-            icon = Icons.Rounded.CloudDownload,
+            icon = Icons.Rounded.Download,
             target = SettingsSearchTarget.CheckForUpdates,
         )
     }
-
-    addRow(
-        page = SettingsPage.Account,
-        key = "account-status",
-        title = stringResource(Res.string.settings_account_status),
-        pageLabel = accountPage,
-        section = accountPage,
-        category = accountCategory,
-        icon = Icons.Rounded.AccountCircle,
-    )
-    addRow(
-        page = SettingsPage.Account,
-        key = "account-sign-out",
-        title = stringResource(Res.string.settings_account_sign_out),
-        pageLabel = accountPage,
-        section = accountPage,
-        category = accountCategory,
-        icon = Icons.Rounded.AccountCircle,
-    )
 
     addRow(
         page = SettingsPage.Appearance,
@@ -743,7 +699,7 @@ internal fun settingsSearchEntries(
         description = stringResource(Res.string.settings_trakt_intro_description),
         pageLabel = traktPage,
         section = stringResource(Res.string.settings_trakt_authentication),
-        category = accountCategory,
+        category = generalCategory,
         icon = Icons.Rounded.Link,
     )
     listOf(
@@ -759,7 +715,7 @@ internal fun settingsSearchEntries(
             description = row.description,
             pageLabel = traktPage,
             section = stringResource(Res.string.settings_trakt_features),
-            category = accountCategory,
+            category = generalCategory,
             icon = Icons.Rounded.Link,
         )
     }

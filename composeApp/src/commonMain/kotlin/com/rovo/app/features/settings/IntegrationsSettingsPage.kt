@@ -1,7 +1,7 @@
 package com.rovo.app.features.settings
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.CloudQueue
+import androidx.compose.material.icons.rounded.Storage
 import androidx.compose.foundation.lazy.LazyListScope
 import rovo.composeapp.generated.resources.compose_settings_page_debrid
 import rovo.composeapp.generated.resources.Res
@@ -44,7 +44,7 @@ internal fun LazyListScope.integrationsContent(
                 SettingsNavigationRow(
                     title = stringResource(Res.string.compose_settings_page_debrid),
                     description = stringResource(Res.string.settings_integrations_debrid_description),
-                    icon = Icons.Rounded.CloudQueue,
+                    icon = Icons.Rounded.Storage,
                     isTablet = isTablet,
                     onClick = onDebridClick,
                 )

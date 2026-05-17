@@ -97,7 +97,6 @@ fun SettingsScreen(
     onAddonsClick: () -> Unit = {},
     onPluginsClick: () -> Unit = {},
     onDownloadsClick: () -> Unit = {},
-    onAccountClick: () -> Unit = {},
     onSupportersContributorsClick: () -> Unit = {},
     onLicensesAttributionsClick: () -> Unit = {},
     onCheckForUpdatesClick: (() -> Unit)? = null,
@@ -304,7 +303,6 @@ fun SettingsScreen(
                 onAddonsClick = onAddonsClick,
                 onPluginsClick = onPluginsClick,
                 onDownloadsClick = onDownloadsClick,
-                onAccountClick = onAccountClick,
                 onSupportersContributorsClick = onSupportersContributorsClick,
                 onLicensesAttributionsClick = onLicensesAttributionsClick,
                 onCheckForUpdatesClick = onCheckForUpdatesClick,
@@ -362,7 +360,6 @@ private fun MobileSettingsScreen(
     onAddonsClick: () -> Unit = {},
     onPluginsClick: () -> Unit = {},
     onDownloadsClick: () -> Unit = {},
-    onAccountClick: () -> Unit = {},
     onSupportersContributorsClick: () -> Unit = {},
     onLicensesAttributionsClick: () -> Unit = {},
     onCheckForUpdatesClick: (() -> Unit)? = null,
@@ -392,14 +389,12 @@ private fun MobileSettingsScreen(
         val searchEntries = settingsSearchEntries(
             pluginsEnabled = AppFeaturePolicy.pluginsEnabled,
             liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
-            switchProfileAvailable = onSwitchProfile != null,
             checkForUpdatesAvailable = onCheckForUpdatesClick != null,
         )
 
         fun openSearchTarget(target: SettingsSearchTarget) {
             when (target) {
                 is SettingsSearchTarget.Page -> when (target.page) {
-                    SettingsPage.Account -> onAccountClick()
                     SettingsPage.SupportersContributors -> onSupportersContributorsClick()
                     SettingsPage.LicensesAttributions -> onLicensesAttributionsClick()
                     SettingsPage.ContinueWatching -> onContinueWatchingClick()
@@ -463,14 +458,10 @@ private fun MobileSettingsScreen(
                             onLicensesAttributionsClick = onLicensesAttributionsClick,
                             onCheckForUpdatesClick = onCheckForUpdatesClick,
                             onDownloadsClick = onDownloadsClick,
-                            onAccountClick = onAccountClick,
                             onSwitchProfileClick = onSwitchProfile,
                         )
                     }
                 }
-                SettingsPage.Account -> accountSettingsContent(
-                    isTablet = false,
-                )
                 SettingsPage.SupportersContributors -> supportersContributorsContent(
                     isTablet = false,
                 )
@@ -738,7 +729,6 @@ private fun TabletSettingsScreen(
             val searchEntries = settingsSearchEntries(
                 pluginsEnabled = AppFeaturePolicy.pluginsEnabled,
                 liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
-                switchProfileAvailable = onSwitchProfile != null,
                 checkForUpdatesAvailable = onCheckForUpdatesClick != null,
             )
 
@@ -826,17 +816,12 @@ private fun TabletSettingsScreen(
                                 onLicensesAttributionsClick = { openInlinePage(SettingsPage.LicensesAttributions) },
                                 onCheckForUpdatesClick = onCheckForUpdatesClick,
                                 onDownloadsClick = onDownloadsClick,
-                                onAccountClick = { openInlinePage(SettingsPage.Account) },
                                 onSwitchProfileClick = onSwitchProfile,
-                                showAccountSection = activeCategory == SettingsCategory.Account,
                                 showGeneralSection = activeCategory == SettingsCategory.General,
                                 showAboutSection = activeCategory == SettingsCategory.About,
                             )
                         }
                     }
-                    SettingsPage.Account -> accountSettingsContent(
-                        isTablet = true,
-                    )
                     SettingsPage.SupportersContributors -> supportersContributorsContent(
                         isTablet = true,
                     )

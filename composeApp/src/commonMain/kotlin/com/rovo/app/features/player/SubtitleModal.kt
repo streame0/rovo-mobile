@@ -28,7 +28,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.CloudDownload
+import androidx.compose.material.icons.rounded.Download
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -326,7 +326,7 @@ private fun AddonSubtitleList(
                 ),
             ) {
                 Icon(
-                    imageVector = Icons.Rounded.CloudDownload,
+                    imageVector = Icons.Rounded.Download,
                     contentDescription = null,
                     tint = colorScheme.onSurfaceVariant,
                     modifier = Modifier.size(32.dp),

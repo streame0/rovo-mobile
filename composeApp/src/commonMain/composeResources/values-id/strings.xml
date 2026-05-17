@@ -1,4 +1,4 @@
-<resources>
+﻿<resources>
     <string name="about_licenses_attributions_subtitle">Sumber data, pengakuan, dan lisensi platform</string>
     <string name="about_supporters_contributors_subtitle">Apresiasi terbuka dan kredit proyek</string>
     <string name="action_back">Kembali</string>
@@ -101,7 +101,7 @@
     <string name="collections_editor_show_all_tab">Tampilkan Tab \"Semua\"</string>
     <string name="collections_editor_show_gif_when_configured_desc">Putar GIF yang dikonfigurasi sebagai pengganti sampul statis jika tersedia.</string>
     <string name="collections_editor_show_gif_when_configured">Tampilkan GIF Jika Dikonfigurasi</string>
-    <string name="collections_editor_source_count">%1$d sumber · %2$s</string>
+    <string name="collections_editor_source_count">%1$d sumber Â· %2$s</string>
     <string name="collections_editor_tile_shape">Bentuk Tile</string>
     <string name="collections_editor_view_mode_rows">Baris</string>
     <string name="collections_editor_view_mode_tabs">Tab</string>
@@ -268,16 +268,12 @@
     <string name="collections_pinned">Disematkan</string>
     <string name="collections_tab_all">Semua</string>
     <string name="collections_your_collections">Koleksi Anda</string>
-    <string name="compose_about_made_with">Dibuat dengan ❤️ oleh Tapframe dan teman-teman</string>
+    <string name="compose_about_made_with">Dibuat dengan â¤ï¸ oleh Tapframe dan teman-teman</string>
     <string name="compose_about_version_format">Versi %1$s (%2$s)</string>
     <string name="compose_action_off">Nonaktif</string>
     <string name="compose_action_on">Aktif</string>
     <string name="compose_action_pause">Jeda</string>
     <string name="compose_action_reload">Muat Ulang</string>
-    <string name="compose_auth_already_have_account">Sudah punya akun? </string>
-    <string name="compose_auth_continue_without_account">Lanjutkan Tanpa Akun</string>
-    <string name="compose_auth_create_account">Buat Akun</string>
-    <string name="compose_auth_dont_have_account">Belum punya akun? </string>
     <string name="compose_auth_email">Email</string>
     <string name="compose_auth_or_separator">  atau  </string>
     <string name="compose_auth_password">Kata Sandi</string>
@@ -303,7 +299,7 @@
     <string name="compose_player_currently_playing">Sedang diputar</string>
     <string name="compose_player_episode_code_episode_only">E%1$d</string>
     <string name="compose_player_episode_code_full">S%1$dE%2$d</string>
-    <string name="compose_player_episode_title_format">S%1$dE%2$d • %3$s</string>
+    <string name="compose_player_episode_title_format">S%1$dE%2$d â€¢ %3$s</string>
     <string name="compose_player_episodes">Episode</string>
     <string name="compose_player_font_size">Ukuran Font</string>
     <string name="compose_player_font_size_value">%1$dsp</string>
@@ -360,7 +356,6 @@
     <string name="compose_search_remove_recent_search">Hapus pencarian terbaru</string>
     <string name="compose_settings_category_about">Tentang</string>
     <string name="compose_settings_category_general">Umum</string>
-    <string name="compose_settings_page_account">Akun</string>
     <string name="compose_settings_page_addons">Addon</string>
     <string name="compose_settings_page_appearance">Tata Letak</string>
     <string name="compose_settings_page_content_discovery">Konten &amp; Penemuan</string>
@@ -379,8 +374,6 @@
     <string name="compose_settings_page_tmdb_enrichment">Pengayaan TMDB</string>
     <string name="compose_settings_page_trakt">Trakt</string>
     <string name="compose_settings_root_about_section">TENTANG</string>
-    <string name="compose_settings_root_account_description">Status akun dan sinkronisasi</string>
-    <string name="compose_settings_root_account_section">AKUN</string>
     <string name="compose_settings_root_appearance_description">Struktur beranda dan gaya poster</string>
     <string name="compose_settings_root_check_updates_description">Unduh versi terbaru</string>
     <string name="compose_settings_root_check_updates_title">Periksa pembaruan</string>
@@ -418,7 +411,7 @@
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Digunakan untuk pemutaran pada build Android.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Dilisensikan di bawah Apache License, Versi 2.0.</string>
-    <string name="compose_trakt_list_picker_loading">Memuat daftar Trakt Anda…</string>
+    <string name="compose_trakt_list_picker_loading">Memuat daftar Trakt Andaâ€¦</string>
     <string name="compose_trakt_list_picker_subtitle">Pilih tempat menyimpan judul ini di Trakt</string>
     <string name="action_donate">Donasi</string>
     <string name="cw_action_go_to_details">Lihat detail</string>
@@ -443,10 +436,10 @@
     <string name="downloads_section_movies">Film</string>
     <string name="downloads_section_shows">Acara</string>
     <string name="downloads_show_downloads">Tampilkan Unduhan</string>
-    <string name="downloads_status_completed">Selesai • %1$s</string>
-    <string name="downloads_status_downloading">Mengunduh • %1$s</string>
+    <string name="downloads_status_completed">Selesai â€¢ %1$s</string>
+    <string name="downloads_status_downloading">Mengunduh â€¢ %1$s</string>
     <string name="downloads_status_failed">Gagal</string>
-    <string name="downloads_status_paused">Dijeda • %1$s</string>
+    <string name="downloads_status_paused">Dijeda â€¢ %1$s</string>
     <string name="episodes_cd_watched">Ditonton</string>
     <string name="episodes_season">Musim %1$d</string>
     <string name="episodes_specials">Spesial</string>
@@ -458,19 +451,6 @@
     <string name="home_view_all">Lihat Semua</string>
     <string name="play_manually">Putar secara manual</string>
     <string name="poster_logo_content_description">Logo %1$s</string>
-    <string name="settings_account">Akun</string>
-    <string name="settings_account_delete_account">Hapus Akun</string>
-    <string name="settings_account_delete_account_description">Ini akan menghapus akun dan semua data terkait Anda secara permanen.</string>
-    <string name="settings_account_delete_confirm_message">Tindakan ini tidak dapat dibatalkan. Semua data, profil, dan riwayat sinkronisasi Anda akan dihapus secara permanen.</string>
-    <string name="settings_account_delete_confirm_title">Hapus Akun?</string>
-    <string name="settings_account_email">Email</string>
-    <string name="settings_account_not_signed_in">Belum masuk</string>
-    <string name="settings_account_sign_out">Keluar</string>
-    <string name="settings_account_sign_out_confirm_message">Anda akan dikembalikan ke layar masuk.</string>
-    <string name="settings_account_sign_out_confirm_title">Keluar?</string>
-    <string name="settings_account_status">Status</string>
-    <string name="settings_account_status_anonymous">Anonim</string>
-    <string name="settings_account_status_signed_in">Sudah masuk</string>
     <string name="settings_appearance_amoled_black">Hitam AMOLED</string>
     <string name="settings_appearance_amoled_description">Gunakan latar belakang hitam pekat untuk layar OLED.</string>
     <string name="settings_appearance_app_language">Bahasa Aplikasi</string>
@@ -482,14 +462,14 @@
     <string name="settings_appearance_section_display">TAMPILAN</string>
     <string name="settings_appearance_section_home">BERANDA</string>
     <string name="settings_appearance_section_theme">TEMA</string>
-    <string name="settings_homescreen_collection_with_addon">Koleksi • %1$s</string>
+    <string name="settings_homescreen_collection_with_addon">Koleksi â€¢ %1$s</string>
     <string name="settings_homescreen_display_name">Nama Tampilan</string>
     <string name="settings_homescreen_empty_message">Pasang addon dengan katalog yang kompatibel untuk mengonfigurasi baris Beranda.</string>
     <string name="settings_homescreen_empty_title">Tidak ada katalog beranda</string>
     <string name="settings_homescreen_hero_source">Sumber hero</string>
     <string name="settings_homescreen_hidden">Tersembunyi</string>
     <string name="settings_homescreen_keep_home_focused">Pertahankan fokus Beranda</string>
-    <string name="settings_homescreen_limit_reached">%1$s • Batas tercapai (maks %2$d)</string>
+    <string name="settings_homescreen_limit_reached">%1$s â€¢ Batas tercapai (maks %2$d)</string>
     <string name="settings_homescreen_no_sources_selected">Tidak ada sumber hero dipilih</string>
     <string name="settings_homescreen_not_in_hero">Tidak di hero</string>
     <string name="settings_homescreen_pin_to_move_toast">Lepas sematkan ke atas dari koleksi untuk memindahkan</string>
@@ -508,7 +488,7 @@
     <string name="layout_hide_unreleased_sub">Sembunyikan film dan acara yang belum dirilis.</string>
     <string name="settings_homescreen_hide_catalog_underline">Sembunyikan Garis Bawah Katalog</string>
     <string name="settings_homescreen_hide_catalog_underline_description">Hapus garis aksen di bawah judul katalog dan koleksi di seluruh aplikasi.</string>
-    <string name="settings_homescreen_summary">%1$d dari %2$d katalog terlihat • %3$d sumber hero dipilih</string>
+    <string name="settings_homescreen_summary">%1$d dari %2$d katalog terlihat â€¢ %3$d sumber hero dipilih</string>
     <string name="settings_homescreen_summary_hint">Buka katalog hanya jika perlu mengganti nama atau mengurutkannya.</string>
     <string name="settings_homescreen_visible">Terlihat</string>
     <string name="settings_hide_secret">Sembunyikan nilai</string>
@@ -868,8 +848,8 @@
     <string name="theme_violet">Lavender</string>
     <string name="theme_white">Melati</string>
     <string name="player_next_episode">Episode Berikutnya</string>
-    <string name="player_next_episode_finding_source">Mencari sumber…</string>
-    <string name="player_next_episode_playing_via_countdown">Memutar melalui %1$s dalam %2$d…</string>
+    <string name="player_next_episode_finding_source">Mencari sumberâ€¦</string>
+    <string name="player_next_episode_playing_via_countdown">Memutar melalui %1$s dalam %2$dâ€¦</string>
     <string name="player_next_episode_thumbnail">Thumbnail episode berikutnya</string>
     <string name="player_next_episode_unaired">Belum Tayang</string>
     <string name="player_skip">Lewati</string>
@@ -977,11 +957,11 @@
     <string name="details_series_unpublished">Episode belum dipublikasikan oleh addon ini.</string>
     <string name="details_servers_unreachable">Perangkat Anda terhubung, tetapi Rovo tidak dapat menjangkau server yang diperlukan.</string>
     <string name="details_show_less">Tampilkan Lebih Sedikit</string>
-    <string name="details_show_more">Tampilkan Lebih Banyak ▾</string>
+    <string name="details_show_more">Tampilkan Lebih Banyak â–¾</string>
     <string name="details_writer">Penulis</string>
     <string name="discover_all_genres">Semua Genre</string>
     <string name="discover_catalog">Katalog</string>
-    <string name="discover_catalog_context">%1$s • %2$s</string>
+    <string name="discover_catalog_context">%1$s â€¢ %2$s</string>
     <string name="discover_empty_load_failed_message">Katalog yang dipilih gagal mengembalikan item temuan.</string>
     <string name="discover_empty_load_failed_title">Tidak dapat memuat temuan</string>
     <string name="discover_empty_no_catalogs_message">Addon yang terpasang tidak mengekspos katalog yang kompatibel untuk temuan.</string>
@@ -1078,7 +1058,7 @@
     <string name="provider_downloaded">Diunduh</string>
     <string name="resume_prompt_action">Lanjutkan</string>
     <string name="streams_active_scrapers">Scraper aktif</string>
-    <string name="streams_checking_more_addons">Memeriksa addon lainnya…</string>
+    <string name="streams_checking_more_addons">Memeriksa addon lainnyaâ€¦</string>
     <string name="streams_copy_link">Salin tautan stream</string>
     <string name="streams_download_file">Unduh file</string>
     <string name="streams_empty_load_failed_message">Addon stream yang terpasang gagal mengembalikan respons stream yang valid.</string>
@@ -1090,9 +1070,9 @@
     <string name="streams_episode_badge">S%1$d E%2$d</string>
     <string name="streams_episode_fallback_title">Episode</string>
     <string name="streams_episode_title_with_name">S%1$dE%2$d - %3$s</string>
-    <string name="streams_fetching">Mengambil…</string>
-    <string name="streams_finding_source">Mencari sumber…</string>
-    <string name="streams_finding_streams">Mencari stream…</string>
+    <string name="streams_fetching">Mengambilâ€¦</string>
+    <string name="streams_finding_source">Mencari sumberâ€¦</string>
+    <string name="streams_finding_streams">Mencari streamâ€¦</string>
     <string name="streams_link_copied">Tautan stream disalin</string>
     <string name="streams_no_direct_link">Tidak ada tautan stream langsung tersedia</string>
     <string name="streams_no_metadata">Tidak ada metadata tersedia</string>
@@ -1105,7 +1085,7 @@
     <string name="trailer_unable_to_play">Tidak dapat memutar trailer</string>
     <string name="trakt_lists_load_failed">Gagal memuat daftar Trakt</string>
     <string name="trakt_lists_update_failed">Gagal memperbarui daftar Trakt</string>
-    <string name="updates_asset_line">%1$s • %2$s</string>
+    <string name="updates_asset_line">%1$s â€¢ %2$s</string>
     <string name="updates_check_failed">Pemeriksaan pembaruan gagal</string>
     <string name="updates_download_failed">Unduhan gagal</string>
     <string name="updates_downloading_progress">Mengunduh %1$d%</string>
@@ -1125,13 +1105,12 @@
     <string name="addon_invalid_url">Masukkan URL addon yang valid</string>
     <string name="addon_load_manifest_failed">Tidak dapat memuat manifes</string>
     <string name="app_brand_name">Rovo</string>
-    <string name="auth_account_deletion_failed">Penghapusan akun gagal</string>
     <string name="auth_sign_in_failed">Masuk gagal</string>
     <string name="auth_sign_out_failed">Keluar gagal</string>
     <string name="auth_sign_up_failed">Pendaftaran gagal</string>
     <string name="catalog_load_failed">Tidak dapat memuat item katalog.</string>
     <string name="continue_watching_up_next">Berikutnya</string>
-    <string name="continue_watching_up_next_episode">Berikutnya • S%1$dE%2$d</string>
+    <string name="continue_watching_up_next_episode">Berikutnya â€¢ S%1$dE%2$d</string>
     <string name="detail_logo_content_description">Logo %1$s</string>
     <string name="details_comments_load_failed">Gagal memuat komentar</string>
     <string name="details_load_failed_all_addons">Tidak dapat memuat detail dari addon mana pun.</string>
@@ -1141,8 +1120,8 @@
     <string name="downloads_channel_description">Menampilkan progres unduhan langsung dan kontrol.</string>
     <string name="downloads_channel_name">Unduhan</string>
     <string name="downloads_live_completed">Unduhan selesai</string>
-    <string name="downloads_live_downloading">Mengunduh %1$s • %2$s</string>
-    <string name="downloads_live_downloading_with_total">Mengunduh %1$s • %2$s / %3$s</string>
+    <string name="downloads_live_downloading">Mengunduh %1$s â€¢ %2$s</string>
+    <string name="downloads_live_downloading_with_total">Mengunduh %1$s â€¢ %2$s / %3$s</string>
     <string name="downloads_live_failed">Unduhan gagal</string>
     <string name="downloads_live_paused">Dijeda %1$s</string>
     <string name="library_remove_confirm">Hapus</string>
@@ -1222,7 +1201,7 @@
     <string name="details_browse_load_failed">Tidak dapat memuat %1$s</string>
     <string name="details_browse_rail_popular">Populer</string>
     <string name="details_browse_rail_recent">Terbaru</string>
-    <string name="details_browse_rail_title">%1$s • %2$s</string>
+    <string name="details_browse_rail_title">%1$s â€¢ %2$s</string>
     <string name="details_browse_rail_top_rated">Nilai Tertinggi</string>
     <string name="details_certification">Sertifikasi</string>
     <string name="details_movie_details">Detail Film</string>
@@ -1260,7 +1239,7 @@
     <string name="media_series">Serial</string>
     <string name="media_tv">TV</string>
     <string name="notifications_episode_release_body_code">%1$s sudah tersedia</string>
-    <string name="notifications_episode_release_body_code_title">%1$s • %2$s sudah tersedia</string>
+    <string name="notifications_episode_release_body_code_title">%1$s â€¢ %2$s sudah tersedia</string>
     <string name="notifications_episode_release_body_generic">Episode baru sudah tersedia</string>
     <string name="notifications_episode_release_body_title">%1$s sudah tersedia</string>
     <string name="notifications_channel_episode_releases_name">Rilis Episode</string>
@@ -1275,3 +1254,4 @@
     <string name="unit_bytes_mb">MB</string>
     <string name="unit_bytes_gb">GB</string>
 </resources>
+

@@ -17,7 +17,6 @@ import com.rovo.app.features.plugins.PluginRepository
 import com.rovo.app.features.home.HomeCatalogSettingsRepository
 import com.rovo.app.features.watchprogress.ContinueWatchingPreferencesRepository
 import rovo.composeapp.generated.resources.Res
-import rovo.composeapp.generated.resources.compose_settings_page_account
 import rovo.composeapp.generated.resources.compose_settings_page_addons
 import rovo.composeapp.generated.resources.compose_settings_page_continue_watching
 import rovo.composeapp.generated.resources.compose_settings_page_homescreen
@@ -188,21 +187,4 @@ fun PluginsSettingsScreen(
     }
 }
 
-@Composable
-fun AccountSettingsScreen(
-    onBack: () -> Unit,
-) {
-    RovoScreen(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        stickyHeader {
-            RovoScreenHeader(
-                title = stringResource(Res.string.compose_settings_page_account),
-                onBack = onBack,
-            )
-        }
-        accountSettingsContent(
-            isTablet = false,
-        )
-    }
-}
+

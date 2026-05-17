@@ -58,7 +58,6 @@ actual object PluginRepository {
     }
 
     actual suspend fun pullFromServer(profileId: Int) {
-        // Supabase removed - local-only app
     }
 
     actual suspend fun addRepository(rawUrl: String): AddPluginRepositoryResult {
