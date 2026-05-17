@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path
+        name="rovo_updates"
+        path="updates/" />
+    <files-path
+        name="rovo_downloads"
+        path="downloads/" />
+</paths>

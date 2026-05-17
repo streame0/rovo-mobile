@@ -1,0 +1,6 @@
+#include? "Version.xcconfig"
+
+TEAM_ID=
+
+PRODUCT_NAME=Rovo
+PRODUCT_BUNDLE_IDENTIFIER=com.rovo.app.Rovo$(TEAM_ID)
