@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rovo.app.ui.theme.rovo
+import com.rovo.app.ui.theme.RovoTokens
 
 @Composable
 fun SectionHeader(
@@ -20,12 +21,12 @@ fun SectionHeader(
 ) {
     Column(
         modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(6.dp)
+        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s4)
     ) {
         Text(
             text = title,
             style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 20.sp,
+                fontSize = RovoTokens.Type.titleMd,
                 fontWeight = FontWeight.Bold
             ),
             color = MaterialTheme.rovo.colors.textPrimary
@@ -37,7 +38,7 @@ fun SectionHeader(
                     .height(4.dp)
                     .background(
                         color = MaterialTheme.rovo.colors.primary,
-                        shape = RoundedCornerShape(2.dp)
+                        shape = RoundedCornerShape(RovoTokens.Space.s2)
                     )
             )
         }

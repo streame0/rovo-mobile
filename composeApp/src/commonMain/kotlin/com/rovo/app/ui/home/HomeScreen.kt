@@ -30,6 +30,7 @@ import com.rovo.shared.ui.home.HomeViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 import com.rovo.app.ui.theme.rovo
+import com.rovo.app.ui.theme.RovoTokens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,7 +49,7 @@ fun HomeScreen(
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.Transparent,
-                    scrolledContainerColor = MaterialTheme.rovo.colors.background.copy(alpha = 0.85f)
+                    scrolledContainerColor = MaterialTheme.rovo.colors.background.copy(alpha = RovoTokens.Opacity.strong)
                 )
             )
         },
@@ -67,9 +68,9 @@ fun HomeScreen(
                 }
                 is HomeUiState.Error -> {
                     Column(
-                        modifier = Modifier.align(Alignment.Center).padding(32.dp),
+                        modifier = Modifier.align(Alignment.Center).padding(RovoTokens.Space.s32),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s16)
                     ) {
                         Text(
                             text = state.message, 
@@ -89,8 +90,8 @@ fun HomeScreen(
                 is HomeUiState.Success -> {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.spacedBy(24.dp), // Increased spacing for "coziness"
-                        contentPadding = PaddingValues(bottom = 32.dp)
+                        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s24), // Increased spacing for "coziness"
+                        contentPadding = PaddingValues(bottom = RovoTokens.Space.s32)
                     ) {
                         // Hero Section
                         state.rows.firstOrNull()?.items?.firstOrNull()?.let { hero ->
@@ -141,7 +142,7 @@ fun HeroSection(
                         0.0f to Color.Black.copy(alpha = 0.6f),
                         0.2f to Color.Transparent,
                         0.6f to Color.Transparent,
-                        0.85f to MaterialTheme.rovo.colors.background.copy(alpha = 0.8f),
+                        0.85f to MaterialTheme.rovo.colors.background.copy(alpha = RovoTokens.Opacity.strong),
                         1.0f to MaterialTheme.rovo.colors.background
                     )
                 )
@@ -164,7 +165,7 @@ fun HeroSection(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 64.dp)
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = RovoTokens.Space.s24),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             if (item.logo != null) {
@@ -182,27 +183,28 @@ fun HeroSection(
                     style = MaterialTheme.typography.displaySmall.copy(
                         fontWeight = FontWeight.Black,
                         letterSpacing = (-1).sp,
-                        lineHeight = 38.sp
+                        lineHeight = 38.sp,
+                        fontSize = RovoTokens.Type.displaySm
                     ),
                     color = Color.White,
                     textAlign = TextAlign.Center
                 )
             }
             
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(RovoTokens.Space.s16))
             
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
             ) {
                 Surface(
                     color = MaterialTheme.rovo.colors.primary.copy(alpha = 0.2f),
-                    shape = RoundedCornerShape(8.dp),
+                    shape = RoundedCornerShape(RovoTokens.Radius.sm),
                     border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.rovo.colors.primary.copy(alpha = 0.3f))
                 ) {
                     Text(
                         text = item.type.uppercase(),
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                        modifier = Modifier.padding(horizontal = RovoTokens.Space.s8, vertical = RovoTokens.Space.s4),
                         style = MaterialTheme.typography.labelSmall,
                         color = Color.White,
                         fontWeight = FontWeight.Black
@@ -217,7 +219,7 @@ fun HeroSection(
                 )
             }
             
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(RovoTokens.Space.s32))
             
             Button(
                 onClick = { onItemClick(item.type, item.id) },
@@ -225,18 +227,18 @@ fun HeroSection(
                     containerColor = Color.White,
                     contentColor = Color.Black
                 ),
-                shape = RoundedCornerShape(20.dp),
+                shape = RoundedCornerShape(RovoTokens.Radius.lg),
                 modifier = Modifier
                     .height(60.dp)
                     .fillMaxWidth(0.7f),
-                elevation = ButtonDefaults.buttonElevation(defaultElevation = 8.dp)
+                elevation = ButtonDefaults.buttonElevation(defaultElevation = RovoTokens.Space.s8)
             ) {
                 Icon(
                     Icons.Default.PlayArrow, 
                     contentDescription = null,
                     modifier = Modifier.size(28.dp)
                 )
-                Spacer(Modifier.width(12.dp))
+                Spacer(Modifier.width(RovoTokens.Space.s12))
                 Text(
                     "WATCH NOW",
                     style = MaterialTheme.typography.titleMedium,

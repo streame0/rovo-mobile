@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.rovo.app.ui.theme.RovoGradients
 import com.rovo.app.ui.theme.rovo
+import com.rovo.app.ui.theme.RovoTokens
 import com.rovo.shared.model.stremio.MetaItem
 
 @Composable
@@ -37,8 +38,8 @@ fun DetailHero(
         Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 32.dp)
-                .padding(horizontal = 24.dp),
+                .padding(bottom = RovoTokens.Space.s32)
+                .padding(horizontal = RovoTokens.Space.s24),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             if (meta.logo != null) {
@@ -60,11 +61,11 @@ fun DetailHero(
                 )
             }
             
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(RovoTokens.Space.s16))
             
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
             ) {
                 Text(
                     text = meta.type.replaceFirstChar { it.uppercase() },

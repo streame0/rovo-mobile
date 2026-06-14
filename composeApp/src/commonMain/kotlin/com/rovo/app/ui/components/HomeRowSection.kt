@@ -28,7 +28,7 @@ fun HomeRowSection(
 
     Column(
         modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12)
     ) {
         Column(modifier = Modifier.padding(horizontal = RovoTokens.Space.s20)) {
             SectionHeader(title = homeRow.title)
@@ -36,7 +36,7 @@ fun HomeRowSection(
         
         LazyRow(
             contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20),
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
+            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12),
             modifier = Modifier.fillMaxWidth()
         ) {
             items(

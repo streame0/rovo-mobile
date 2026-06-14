@@ -23,6 +23,7 @@ import coil3.compose.AsyncImage
 import com.rovo.shared.model.stremio.MetaItem
 
 import com.rovo.app.ui.theme.rovo
+import com.rovo.app.ui.theme.RovoTokens
 
 @Composable
 fun MetaItemCard(
@@ -34,7 +35,7 @@ fun MetaItemCard(
         modifier = modifier
             .width(140.dp) // Slightly wider for a "cozier" feel
             .clickable(onClick = onClick),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
     ) {
         Box(
             modifier = Modifier
@@ -94,11 +95,11 @@ fun MetaItemCard(
             }
         }
 
-        Column(modifier = Modifier.padding(horizontal = 4.dp)) {
+        Column(modifier = Modifier.padding(horizontal = RovoTokens.Space.s4)) {
             Text(
                 text = item.name,
                 style = MaterialTheme.typography.labelLarge.copy(
-                    fontSize = 14.sp,
+                    fontSize = RovoTokens.Type.bodyMd,
                     fontWeight = FontWeight.Bold,
                     letterSpacing = (-0.3).sp,
                     lineHeight = 18.sp
@@ -113,7 +114,7 @@ fun MetaItemCard(
                 text = infoText,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.rovo.colors.textSecondary,
-                fontSize = 12.sp,
+                fontSize = RovoTokens.Type.labelSm,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )

@@ -88,14 +88,14 @@ fun SearchScreen(
                         tint = rovoColors.primary,
                         modifier = Modifier.size(24.dp)
                     )
-                    Spacer(modifier = Modifier.width(14.dp))
+                    Spacer(modifier = Modifier.width(RovoTokens.Space.s12))
                     BasicTextField(
                         value = query,
                         onValueChange = viewModel::onQueryChange,
                         modifier = Modifier.fillMaxWidth(),
                         textStyle = TextStyle(
                             color = rovoColors.textPrimary,
-                            fontSize = 17.sp,
+                            fontSize = RovoTokens.Type.bodyLg,
                             fontWeight = FontWeight.Medium
                         ),
                         cursorBrush = SolidColor(rovoColors.primary),
@@ -104,7 +104,7 @@ fun SearchScreen(
                                 Text(
                                     "Movies, shows, actors...",
                                     color = rovoColors.textMuted,
-                                    fontSize = 17.sp,
+                                    fontSize = RovoTokens.Type.bodyLg,
                                     style = MaterialTheme.typography.bodyLarge
                                 )
                             }
@@ -129,7 +129,7 @@ fun SearchScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = RovoTokens.Space.s20),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
                 ) {
                     FilterPill("Movies")
                     FilterPill("TV Shows")
@@ -179,9 +179,9 @@ fun SearchScreen(
                     is SearchUiState.Success -> {
                         LazyVerticalGrid(
                             columns = GridCells.Fixed(3),
-                            contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20, vertical = 20.dp),
-                            horizontalArrangement = Arrangement.spacedBy(12.dp),
-                            verticalArrangement = Arrangement.spacedBy(16.dp),
+                            contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20, vertical = RovoTokens.Space.s20),
+                            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12),
+                            verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s16),
                             modifier = Modifier.fillMaxSize()
                         ) {
                             items(state.results, key = { it.id }) { item ->
@@ -203,7 +203,7 @@ fun SearchScreen(
 fun FilterPill(text: String) {
     val rovoColors = MaterialTheme.rovo.colors
     Surface(
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(RovoTokens.Radius.full),
         color = rovoColors.surfaceVariant.copy(alpha = 0.5f),
         modifier = Modifier.height(44.dp),
         border = androidx.compose.foundation.BorderStroke(
@@ -213,16 +213,17 @@ fun FilterPill(text: String) {
         onClick = { /* TODO */ }
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 16.dp),
+            modifier = Modifier.padding(horizontal = RovoTokens.Space.s16),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(6.dp)
+            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s4)
         ) {
             Text(
                 text = text, 
                 style = MaterialTheme.typography.labelLarge, 
                 color = rovoColors.textPrimary,
                 fontWeight = FontWeight.Black,
-                letterSpacing = 0.5.sp
+                letterSpacing = 0.5.sp,
+                fontSize = RovoTokens.Type.labelSm
             )
             Icon(
                 Icons.Default.ArrowDropDown, 

@@ -49,7 +49,7 @@ fun LibraryScreen(
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.Transparent,
-                    scrolledContainerColor = rovoColors.background.copy(alpha = 0.9f)
+                    scrolledContainerColor = rovoColors.background.copy(alpha = RovoTokens.Opacity.strong)
                 )
             )
         }
@@ -83,19 +83,19 @@ fun LibraryScreen(
                     is LibraryUiState.Success -> {
                         LazyColumn(
                             modifier = Modifier.fillMaxSize(),
-                            contentPadding = PaddingValues(top = 16.dp, bottom = 40.dp),
-                            verticalArrangement = Arrangement.spacedBy(40.dp)
+                            contentPadding = PaddingValues(top = RovoTokens.Space.s16, bottom = RovoTokens.Space.s32),
+                            verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s32)
                         ) {
                             if (state.watchlist.isNotEmpty()) {
                                 item {
-                                    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                                    Column(verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s16)) {
                                         SectionHeader(
                                             title = "Watchlist",
                                             modifier = Modifier.padding(horizontal = RovoTokens.Space.s20)
                                         )
                                         LazyRow(
                                             contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20),
-                                            horizontalArrangement = Arrangement.spacedBy(14.dp)
+                                            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12)
                                         ) {
                                             items(state.watchlist, key = { it.id }) { item ->
                                                 MetaItemCard(
@@ -115,14 +115,14 @@ fun LibraryScreen(
 
                             if (state.history.isNotEmpty()) {
                                 item {
-                                    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                                    Column(verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s16)) {
                                         SectionHeader(
                                             title = "Continue Watching",
                                             modifier = Modifier.padding(horizontal = RovoTokens.Space.s20)
                                         )
                                         LazyRow(
                                             contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20),
-                                            horizontalArrangement = Arrangement.spacedBy(14.dp)
+                                            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12)
                                         ) {
                                             items(state.history, key = { it.id }) { item ->
                                                 MetaItemCard(

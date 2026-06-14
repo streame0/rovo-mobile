@@ -39,7 +39,7 @@ fun CastRail(
         )
         LazyRow(
             contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20),
-            horizontalArrangement = Arrangement.spacedBy(14.dp)
+            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12)
         ) {
             items(cast) { person ->
                 CastItem(person = person)
@@ -56,7 +56,7 @@ private fun CastItem(
     Column(
         modifier = modifier.width(86.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
     ) {
         if (person.profilePath != null) {
             Surface(
@@ -99,7 +99,8 @@ private fun CastItem(
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                lineHeight = 16.sp
+                lineHeight = 16.sp,
+                fontSize = RovoTokens.Type.labelSm
             )
             if (person.character != null) {
                 Text(

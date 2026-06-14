@@ -30,8 +30,8 @@ fun RecommendationRail(
         )
         LazyRow(
             contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20),
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
-            modifier = Modifier.padding(top = 16.dp)
+            horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12),
+            modifier = Modifier.padding(top = RovoTokens.Space.s16)
         ) {
             items(recommendations) { item ->
                 Card(

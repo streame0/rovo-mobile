@@ -29,14 +29,14 @@ fun SeasonSelector(
 ) {
     LazyRow(
         modifier = modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(horizontal = 20.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
+        contentPadding = PaddingValues(horizontal = RovoTokens.Space.s20),
+        horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
     ) {
         items(seasons) { season ->
             val isSelected = season == selectedSeason
             Surface(
                 onClick = { onSeasonSelect(season) },
-                shape = RoundedCornerShape(16.dp),
+                shape = RoundedCornerShape(RovoTokens.Radius.full),
                 color = if (isSelected) MaterialTheme.rovo.colors.primary 
                         else MaterialTheme.rovo.colors.surfaceVariant.copy(alpha = 0.5f),
                 border = if (isSelected) null else androidx.compose.foundation.BorderStroke(
@@ -45,7 +45,7 @@ fun SeasonSelector(
                 )
             ) {
                 Box(
-                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
+                    modifier = Modifier.padding(horizontal = RovoTokens.Space.s20, vertical = RovoTokens.Space.s12),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
@@ -54,7 +54,8 @@ fun SeasonSelector(
                         fontWeight = FontWeight.Black,
                         color = if (isSelected) MaterialTheme.rovo.colors.onPrimary 
                                 else MaterialTheme.rovo.colors.textPrimary,
-                        letterSpacing = 0.5.sp
+                        letterSpacing = 0.5.sp,
+                        fontSize = RovoTokens.Type.labelSm
                     )
                 }
             }

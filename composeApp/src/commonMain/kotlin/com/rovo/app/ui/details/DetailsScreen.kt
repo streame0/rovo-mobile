@@ -109,7 +109,7 @@ fun DetailsScreen(
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent,
-                    scrolledContainerColor = rovoColors.background.copy(alpha = 0.9f)
+                    scrolledContainerColor = rovoColors.background.copy(alpha = RovoTokens.Opacity.strong)
                 )
             )
         }
@@ -157,7 +157,7 @@ fun DetailsScreen(
                                 },
                                 isLoadingStreams = isLoadingStreams,
                                 isSeries = meta.type == "series",
-                                modifier = Modifier.padding(vertical = 8.dp)
+                                modifier = Modifier.padding(vertical = RovoTokens.Space.s8)
                             )
                         }
 
@@ -166,8 +166,8 @@ fun DetailsScreen(
                             Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = RovoTokens.Space.s20, vertical = 16.dp),
-                                verticalArrangement = Arrangement.spacedBy(12.dp)
+                                    .padding(horizontal = RovoTokens.Space.s20, vertical = RovoTokens.Space.s16),
+                                verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s12)
                             ) {
                                 Text(
                                     text = meta.description ?: "",
@@ -186,13 +186,13 @@ fun DetailsScreen(
                                 
                                 meta.genres?.let { genres ->
                                     FlowRow(
-                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                                        horizontalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8),
+                                        verticalArrangement = Arrangement.spacedBy(RovoTokens.Space.s8)
                                     ) {
                                         genres.forEach { genre ->
                                             Surface(
                                                 color = rovoColors.surfaceVariant.copy(alpha = 0.5f),
-                                                shape = RoundedCornerShape(8.dp),
+                                                shape = RoundedCornerShape(RovoTokens.Radius.sm),
                                                 border = androidx.compose.foundation.BorderStroke(
                                                     1.dp,
                                                     rovoColors.textMuted.copy(alpha = 0.1f)
@@ -200,7 +200,7 @@ fun DetailsScreen(
                                             ) {
                                                 Text(
                                                     text = genre,
-                                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                                                    modifier = Modifier.padding(horizontal = RovoTokens.Space.s8, vertical = RovoTokens.Space.s4),
                                                     style = MaterialTheme.typography.labelSmall,
                                                     color = rovoColors.textPrimary
                                                 )
@@ -217,7 +217,7 @@ fun DetailsScreen(
                                     seasons = meta.videos?.map { it.season }?.distinct()?.sorted() ?: emptyList(),
                                     selectedSeason = selectedSeason,
                                     onSeasonSelect = { selectedSeason = it },
-                                    modifier = Modifier.padding(vertical = 16.dp)
+                                    modifier = Modifier.padding(vertical = RovoTokens.Space.s16)
                                 )
                             }
                             
@@ -235,7 +235,7 @@ fun DetailsScreen(
                             item {
                                 CastRail(
                                     cast = meta.cast!!,
-                                    modifier = Modifier.padding(vertical = 24.dp)
+                                    modifier = Modifier.padding(vertical = RovoTokens.Space.s24)
                                 )
                             }
                         }
@@ -246,19 +246,19 @@ fun DetailsScreen(
                                 RecommendationRail(
                                     recommendations = recommendations,
                                     onItemClick = { item -> viewModel.loadDetails(item.type, item.id) },
-                                    modifier = Modifier.padding(top = 24.dp)
+                                    modifier = Modifier.padding(top = RovoTokens.Space.s24)
                                 )
                             }
                         }
 
                         // Details Table
                         item {
-                            Spacer(modifier = Modifier.height(24.dp))
+                            Spacer(modifier = Modifier.height(RovoTokens.Space.s24))
                             SectionHeader(
                                 title = "Show Details",
                                 modifier = Modifier.padding(horizontal = RovoTokens.Space.s20)
                             )
-                            Spacer(modifier = Modifier.height(14.dp))
+                            Spacer(modifier = Modifier.height(RovoTokens.Space.s12))
                             DetailRow("Status", if (meta.type == "series") "Continuing" else "Released")
                             DetailRow("Release Info", meta.releaseInfo ?: "Unknown")
                             DetailRow("Runtime", meta.runtime ?: "N/A")
@@ -270,12 +270,12 @@ fun DetailsScreen(
                         // Episodes Section (Alternative for Series)
                         if (meta.type == "series" && !meta.videos.isNullOrEmpty()) {
                             item {
-                                Spacer(modifier = Modifier.height(24.dp))
+                                Spacer(modifier = Modifier.height(RovoTokens.Space.s24))
                                 SectionHeader(
                                     title = "Episodes",
                                     modifier = Modifier.padding(horizontal = RovoTokens.Space.s20)
                                 )
-                                Spacer(modifier = Modifier.height(14.dp))
+                                Spacer(modifier = Modifier.height(RovoTokens.Space.s12))
                             }
                             
                             val groupedVideos = meta.videos!!.groupBy { it.season }
@@ -292,7 +292,7 @@ fun DetailsScreen(
                                     seasons = seasons,
                                     selectedSeason = selectedSeason,
                                     onSeasonSelect = { selectedSeason = it },
-                                    modifier = Modifier.padding(bottom = 8.dp)
+                                    modifier = Modifier.padding(bottom = RovoTokens.Space.s8)
                                 )
                             }
 
@@ -306,7 +306,7 @@ fun DetailsScreen(
                         }
 
                         item {
-                            Spacer(modifier = Modifier.height(32.dp))
+                            Spacer(modifier = Modifier.height(RovoTokens.Space.s32))
                         }
                     }
                 }
@@ -510,7 +510,7 @@ fun DetailsScreen(
 fun DetailRow(label: String, value: String) {
     Column(modifier = Modifier.fillMaxWidth().padding(horizontal = RovoTokens.Space.s20)) {
         Row(
-            modifier = Modifier.padding(vertical = 10.dp),
+            modifier = Modifier.padding(vertical = RovoTokens.Space.s8),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -560,7 +560,7 @@ fun EpisodeItem(
                 modifier = Modifier
                     .width(120.dp)
                     .aspectRatio(16/9f)
-                    .clip(RoundedCornerShape(12.dp))
+                    .clip(RoundedCornerShape(RovoTokens.Radius.md))
                     .background(rovoColors.surfaceVariant)
             ) {
                 if (video.thumbnail != null) {
